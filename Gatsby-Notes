@@ -13,7 +13,7 @@ Host from local server
 
 Setting up Pages
 
-	1) under src/pages create pageName.js
+	1) inside pages dir: create pageName.js
 
 	2) get boilerplate: type rafce (react arrow functional component) or similar
 
@@ -39,9 +39,9 @@ Setting up Pages
 
 404 Pages
 
-	1) create new page: 404.js
+	1) inside pages dir: create 404.js
 	
-	2) but cannot name function 404, so name error()
+	2) but cannot use numbers for function names, so name error()
 
 Nested Pages
 
@@ -51,7 +51,49 @@ Nested Pages
 
 	3) create nested pages inside this directory
 
+Linking Pages
 
+	1) import {Link} from “gatsby”
 
+	2) <Link to=“filpath”>Page Name</Link>
 
+			* “/“ === homepage!
 
+	3) does not refresh upon load!	
+
+	4) only used for internal pages, not external links! 
+
+Navbar
+
+	1) create components directory inside src
+
+	2) create Navbar.js file
+
+	3) import {Link} from “gatsby”
+
+	4) nav > ul > li (etc…)
+
+	5) export default Navbar 
+
+Wrapper Components
+	*best used for global components like: navbar, header, footer etc…
+
+	1) wrapper is commonly called Layout.js
+
+	2) import navbar, footer etc…
+
+	3) can use <> </> instead of <div> to keep code clean
+
+	4) inside component: place {children} as props to wrap
+
+	function Layout (children) {
+		return (
+			<>
+				<Navbar />
+				{children}
+				<Footer />
+			</>
+		);
+	}
+
+	5) inside pages: wrap elements inside <Layout />
