@@ -1,0 +1,57 @@
+Gatsby
+
+Create new proj
+
+	1) cd into directory
+	2) gatsby new {projectName} {starterURL}
+		*visit site for starterURL or else: default
+
+Host from local server
+
+	1) cd into directory
+	2) gatsby develop
+
+Setting up Pages
+
+	1) under src/pages create pageName.js
+
+	2) get boilerplate: type rafce (react arrow functional component) or similar
+
+	3) format as:
+
+		export default function pageName() {
+			return <div>Hello World!</div>
+		}
+
+		or as arrow function:
+
+		const pageName = () => {
+			return (
+				<div>pageName</div>
+			);
+		}
+
+		export default pageName
+
+
+	4) *must export default
+
+
+404 Pages
+
+	1) create new page: 404.js
+	
+	2) but cannot name function 404, so name error()
+
+Nested Pages
+
+	1) create new directory inside src/pages
+
+	2) create another index.js (if you want this to be its own page!)
+
+	3) create nested pages inside this directory
+
+
+
+
+
