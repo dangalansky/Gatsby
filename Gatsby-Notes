@@ -83,10 +83,11 @@ Wrapper Components
 	2) import navbar, footer etc…
 
 	3) can use <> </> instead of <div> to keep code clean
+		* this is shorthand for React.fragment
 
 	4) inside component: place {children} as props to wrap
 
-	function Layout (children) {
+	function Layout ({children}) {
 		return (
 			<>
 				<Navbar />
@@ -97,3 +98,42 @@ Wrapper Components
 	}
 
 	5) inside pages: wrap elements inside <Layout />
+
+
+CSS (inline)
+
+- inline always trumps global
+
+	inline ex) <h1> style={{ color: “green”, textTransform: “capitalize” }} </h1>
+
+CSS (global)
+
+- to import css in react/gatsby, must add extension to import line
+
+	ex) import “./layout.css”
+
+while in development stage: global css will be applied to all pages! 
+
+once deployed: if page does not import layout, styles will not be applied
+
+CSS Modules
+
+	1) create a css file for every page
+
+		ex) home.module.css
+
+		ex) footer.module.css
+
+	2) inside page: import every class listed in css
+
+		import {page, text} from “../css/home.module.css”
+
+	3) OR… import everything like so:
+
+		import * as whateverName from “../css/home.module.css”
+
+		then:
+
+		<div className={whateverName.class}>
+
+	4) copy and paste style sheets to personalize for each page and avoid having to come up with original classNames
