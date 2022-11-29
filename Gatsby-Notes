@@ -108,6 +108,17 @@ CSS (inline)
 
 CSS (global)
 
+* add normalize.css
+	-will change css styles for max. compatibility
+
+	1) npm install normalize.css
+
+	2) import “normalize.css”
+
+		—> before main.css!
+
+	3) restart server
+
 - to import css in react/gatsby, must add extension to import line
 
 	ex) import “./layout.css”
@@ -115,6 +126,11 @@ CSS (global)
 while in development stage: global css will be applied to all pages! 
 
 once deployed: if page does not import layout, styles will not be applied
+
+
+* activeClassName
+
+ - className to add if you want an active link to do something special, like highlight or line-through
 
 CSS Modules
 
@@ -137,3 +153,92 @@ CSS Modules
 		<div className={whateverName.class}>
 
 	4) copy and paste style sheets to personalize for each page and avoid having to come up with original classNames
+
+
+Styled Components (Install)
+styled-components.com
+
+ 	1) https://www.gatsbyjs.com/plugins/
+
+ 	2) search: styled components
+
+	3) run script into project directory
+
+	npm install gatsby-plugin-styled-components styled-components babel-plugin-styled-components
+
+	4) edit gatsby-config.js: add string into plugins array
+
+		plugins: [`gatsby-plugin-styled-components`]
+
+Styled Components (Use)
+
+ 	1) import styled from “styled-components”
+
+	2) for a modular component…
+
+		export const Button = styled.button `
+			background: green;
+			color: orange;
+			font-size: 2;
+		`;
+
+	3) or use for inside-page styles
+		* note: not quotes, use tilda button
+
+		const Wrapper = styled.section `
+			color: blue;
+
+			h1 {
+				color: yellow;
+			}
+
+			.text {
+				text-transform: uppercase;
+			}
+		`;
+
+
+Images in Gatsby
+
+	1) install plugin: gatsby-plugin-image
+
+	2) add strings to plugin array
+
+		`gatsby-plugin-image`,
+    		`gatsby-plugin-sharp`,
+    		`gatsby-transformer-sharp`,
+
+	3) Static Images:
+
+			* use for hero, about; images that do not change!
+
+		- limitations:
+			- cannot pass external props, to effect from another page
+			- affecting code must be contained within component!
+
+		a) import {StaticImage} from “gatsby-plugin-image”
+
+		b) export function ImageName() {
+				return <StaticImage src=“filepath” alt=“alt name” />
+			}
+
+				* src = filepath -or- URL
+
+		c) props
+
+				—> placeholder : what appears before image loads
+					
+						dominantColor = default
+						tracedSVG = better!
+
+				—> layout: how the image responds to container size
+
+						constrained = default, image changes until max size is reached
+						fixed = image is fixed at max size, will cut off inside container
+						fullWidth = image always fills container
+
+				—> as: HTML element used as outer wrapper
+
+						div = default
+						
+					
