@@ -233,12 +233,23 @@ Images in Gatsby
 
 				—> layout: how the image responds to container size
 
-						constrained = default, image changes until max size is reached
-						fixed = image is fixed at max size, will cut off inside container
-						fullWidth = image always fills container
+						constrained = default, image changes until max size is reached	
+		
+							*width/height—> define max size, image scales smaller otherwise
 
+							** value must be contained inside brackets
+
+								ex) height={200}
+		
+						fixed = image is fixed at max size, will cut off inside container
+
+							*width/height —> define size displayed on screen
+						
+						fullWidth = image always fills container
+	
 				—> as: HTML element used as outer wrapper
 
 						div = default
 						
-					
+						
+
