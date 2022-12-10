@@ -55,7 +55,7 @@ Linking Pages
 
 	1) import {Link} from “gatsby”
 
-	2) <Link to=“filpath”>Page Name</Link>
+	2) <Link to=“filepath”>Page Name</Link>
 
 			* “/“ === homepage!
 
@@ -237,7 +237,7 @@ Images in Gatsby
 		
 							*width/height—> define max size, image scales smaller otherwise
 
-							** value must be contained inside brackets
+							** if inline: value must be contained inside brackets
 
 								ex) height={200}
 		
@@ -251,5 +251,5 @@ Images in Gatsby
 
 						div = default
 						
-						
 
+	
