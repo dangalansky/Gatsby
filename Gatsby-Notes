@@ -304,3 +304,29 @@ Hero Setup:
 				—> make sure border-radius of container matches that of image!
 
 
+GraphQL (Data Fetching)
+
+	in a nutshell:
+		1. components want data
+		2. use GraphQL to get data
+		3. test queries in sandbox
+		4. render data using staticquery or pagequery
+	
+	* GraphiQL === Data querying tool
+		
+		pulls from: API’s, Headless CMS, JSON, Markdown, SiteMetaData
+	
+	* 2 types of query
+	
+		<StaticQuery> - can be used on any component, page or otherwise
+
+		<PageQuery> - only used on pages; can accept variables!
+
+
+Writing Queries
+
+	- anatomy of a query:
+
+		* query - title of the object
+
+		* fields - properties of the object
