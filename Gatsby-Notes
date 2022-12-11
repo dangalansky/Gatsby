@@ -251,5 +251,56 @@ Images in Gatsby
 
 						div = default
 						
+					
 
-	
+
+
+
+Hero Setup:
+
+	1) set up static image (see above)
+
+	2) 	<Layout>
+
+			<main className=“page”>
+
+				<header className=“hero”>
+
+					<Image className=“hero-img” layout=“fullWidth”>
+
+						<div className=“hero-container”>
+
+							<div className=“hero-text”>
+
+								<h1> The Heading </h1>
+		
+								<h4> Sub heading </h4>
+
+
+	3) The CSS: For text over image!
+
+
+		.hero-img {
+			height: 100%;
+			border-radius: ***
+		}
+			
+			* image size is limited by parent “hero”; set to 40% of screen height
+
+		.hero {
+			height: 40vh;
+			position: relative;
+		}
+
+		.hero-container {
+			position: absolute;   <— pulls text out of normal flow; spans entirety of hero bc hero= relative
+			display: flex;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.4); <- darkens background to pop over image area
+			border-radius: ***
+		}
+			
+				—> make sure border-radius of container matches that of image!
+
+
