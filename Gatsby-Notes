@@ -346,6 +346,60 @@ Rendering (StaticQuery)
 
 	1) set up query
 
+	2) copy from first “{“
+
+	3) set up component page, must be Title-Cased
+
+	4) import React from “react”
+		import { useStaticQuery, graphql } from “gatsby”
+
+
+		const getData = graphql`
+			{
+				site {
+					siteMetadata {
+						author
+						title
+						description
+					}		
+				}
+			}
+
+		` 
+
+	5) const FetchData = () => {
+			const data = useStaticQuery(getData);
+			return (
+				<div>
+					<h1>{data.site.siteMetadata.title}</h1>
+				</div>
+			)
+		}
+
+		export default FetchData;
+
+	6) optional: destructure data variable
+
+			ex) const {
+					site: {
+						siteMetadata: {title},
+					},
+				} = useStaticQuery(getData);
+
+				return <div>
+					<h2> {title} </h2>
+				</div>
+
+	7) or: set up variable as…
+	
+			const shortCut = data.site.siteMetadata;
+
+			return <div>
+						<h2> {shortCut.title} </h2>
+					</div>
+
+					
+
 	
 
 	Automatic:
