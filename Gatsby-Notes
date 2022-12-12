@@ -330,3 +330,68 @@ Writing Queries
 		* query - title of the object
 
 		* fields - properties of the object
+
+	*cntl+space —> give a list of options at any moment
+
+	1) site {}
+
+	2) siteMetadata{}
+
+	3) title, author etc… whatever you want back from query.
+
+
+Rendering (StaticQuery)
+
+	Manual:
+
+	1) set up query
+
+	
+
+	Automatic:
+
+	1) set up query
+
+	2) choose code exporter
+
+	3) select StaticQuery hook
+
+	4) copy + paste into component or page 
+
+	5) under return (), render elements by tapping into values from query
+
+		ex) for a simple value
+
+			<div>
+				<h2>{data.site.siteMetadata.person.name}</h2>
+			</div>
+
+		ex) for complex values, use .map()
+
+			<div>
+				{data.site.siteMetadata.complexData.map((item, index) => {
+					return (
+						<p key={index}> {item.name}:{item.age}</p>
+					)
+				})}
+			</div>
+
+	6) import component into page
+
+
+siteMetadata(SEO)
+
+*inside gatsby-config.js; for SEO purposes
+*JSON object
+
+module.exports= {
+
+	siteMetadata: {
+		title: “Website Title”,
+		description: “A description of the contents/purpose”,
+		author: “@NameTagThing
+	},
+
+	plugins: []
+
+}
