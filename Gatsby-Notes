@@ -251,10 +251,6 @@ Images in Gatsby
 
 						div = default
 						
-					
-
-
-
 
 Hero Setup:
 
@@ -322,6 +318,42 @@ GraphQL (Data Fetching)
 
 		<PageQuery> - only used on pages; can accept variables!
 
+	* query names must be title-cased and unique; syntax as follows…
+
+	const getData = graphql`
+		query QueryName { …
+
+	* troubleshooting: if you query name, you might have to clear cache to get results
+
+			—> in terminal : gatsby clean
+
+	—> for sourcing local data/files:
+		
+		* helpful to point to specific files
+			but…you could technically specify all files!
+		
+
+		gatsby-source-filesystem
+	
+		likely inside dependencies, but if not:
+
+		- npm install gatsby-source-filesystem
+
+		* inside gatsby-config.js, under plugins: must set up as an object
+
+		ex) plugins: [
+				‘gatsby-transformer-sharp’,
+				{
+      				resolve: `gatsby-source-filesystem`,
+      				options: {
+        				name: `images`,
+        				path: `${__dirname}/src/assets/images`,
+      				},
+    				},
+
+			* set up name: can be anything you like
+			* set up path: to specific area
+		
 
 Writing Queries
 
@@ -398,9 +430,6 @@ Rendering (StaticQuery)
 						<h2> {shortCut.title} </h2>
 					</div>
 
-					
-
-	
 
 	Automatic:
 
@@ -433,6 +462,42 @@ Rendering (StaticQuery)
 	6) import component into page
 
 
+Establishing Aliases
+
+	* helpful to refer to long property names
+
+	* use key:value pair syntax
+
+	* must always refer to that property as such!
+
+	ex) inside query:
+
+			site{
+				info: siteMetadata {
+
+Establishing Arguments
+
+	* place inside () after property
+		
+		ex) allFile(limit: 10)
+
+	* can combine arguments for increased specificity 
+
+	1) Limit —> randomly chooses n number of items from subset
+
+	2) Skip —> skips n number of items, returns the rest after
+
+	3) Sort —> by field (name, size, etc.) and order (ascending or descending) 
+
+	4) Filter —> return specific items under restrictions 
+
+				eq: equal	
+				ne: not equal
+
+			ex) to return only items within directory: recipes
+
+			filter: {relativeDirectory: {eq: “recipes”}}) 
+
 siteMetadata(SEO)
 
 *inside gatsby-config.js; for SEO purposes
@@ -449,3 +514,5 @@ module.exports= {
 	plugins: []
 
 }
+
+
