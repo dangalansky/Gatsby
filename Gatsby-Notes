@@ -250,6 +250,63 @@ Images in Gatsby
 				—> as: HTML element used as outer wrapper
 
 						div = default
+
+	4) Dynamic Images: GatsbyImage
+
+		* cannot use SVG
+
+		a) set up component to render image(s)
+
+			must import {GatsbyImage} inside component page
+	
+		b) create query
+			
+				allFile > nodes > name/childImageSharp > gatsbyImageData 
+
+					options: width (recommended!), layout, placeholder etc…
+
+		c) paste query inside component
+
+		d) reference query, .map() allFile
+
+			const Gallery = () => {
+			
+				const data = useStaticQuery(query);
+				const nodes = data.allFile.nodes;
+
+				return (
+					<div>
+					{nodes.map((image, index)=>{
+						return(
+							<article key={index}>
+							<GatsbyImage image={nodes.childImageSharp.gatsbyImageData} alt={nodes.name}	 />
+							</article>
+						)	
+					}
+					</div>	
+				)
+
+		e) import component into page 
+
+
+	5) getImage: Helper Function!
+
+			* prevents site from breaking based on missing path or file
+			
+			* pass in path to object where childImageSharp sits
+
+		import {GatsbyImage, getImage} from “gatsby-image-sharp”;
+
+
+		{nodes.map((image, index) => {
+			const imagePath = getImage(image)
+			return(
+				<GatsbyImage image={imagePath} />
+		})
+
+		
+
+		
 						
 
 Hero Setup:
@@ -362,6 +419,10 @@ Writing Queries
 		* query - title of the object
 
 		* fields - properties of the object
+
+	- allFile: returns an array of a dataset
+	
+	-file: returns single object; must be constructed to return specific item
 
 	*cntl+space —> give a list of options at any moment
 
@@ -496,7 +557,10 @@ Establishing Arguments
 
 			ex) to return only items within directory: recipes
 
-			filter: {relativeDirectory: {eq: “recipes”}}) 
+			(filter: {relativeDirectory: {eq: “recipes”}}) 
+
+	* sourceInstanceName: references “name” property inside filesystem object (gatsby-config)
+
 
 siteMetadata(SEO)
 
@@ -514,5 +578,3 @@ module.exports= {
 	plugins: []
 
 }
-
-
