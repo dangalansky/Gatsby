@@ -307,8 +307,6 @@ Images in Gatsby
 		
 
 		
-						
-
 Hero Setup:
 
 	1) set up static image (see above)
@@ -578,3 +576,38 @@ module.exports= {
 	plugins: []
 
 }
+
+Headless CMS (Contentful)	
+
+	setting up page:
+
+	1) create new space : name of website
+
+	2) content model: add content type
+	
+			title = name of page 
+
+	3) fields: content type
+		
+		ex) heading = text, photos = media, cookTime = integer etc…
+
+		* strongly recommended to set up as “required” to avoid future bugs
+
+			validation - required field, limit character count, unique field etc…
+
+	4) name fields in camel-casing like JSON fields
+
+		ex) cookTime, headingTitle … etc
+
+	5) save
+
+
+	adding content
+
+	1) click to content page 
+
+	2) add entry
+
+	3) fill in established fields
+
+	4) if added JSON field, must insert as JSON object
