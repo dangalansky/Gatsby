@@ -611,3 +611,61 @@ Headless CMS (Contentful)
 	3) fill in established fields
 
 	4) if added JSON field, must insert as JSON object
+
+
+Connect CMS (Contentful) to Gatsby
+
+	1) install gatsby-source-contentful
+
+	2) setup plugin according to docs
+
+	3) in contentful: setting > api keys
+
+	4) add API key
+
+	5) title and save key
+
+	6) copy + paste spaceID and API (Content Delivery) token
+
+
+Querying Contentful Data
+
+
+ENV Variables
+
+ * here’s where you hide your API keys
+
+ visit: https://gatsby.dev/env-vars
+
+—> in Development:
+		- variables loaded from : .env.development
+
+		1) in root dir: create file “.env.development”
+
+		2) set up variable
+
+				ex) CONTENTFUL_API_KEY = alsdkfj21209ilskdfasdfads        <— no need for string!
+
+		3) inside gatsby-config.js (at top):
+
+				require("dotenv").config({
+  					path: `.env.${process.env.NODE_ENV}`,
+				})
+
+		4) inside plugin: 
+
+				accessToken: process.env.CONTENTFUL_API_KEY
+
+—> in Builds:
+		-variables loaded from : .env.production
+
+		1) in root dir: create file: “.env.production”
+
+		2) cut and paste from env.development 
+
+
+—> Lastly:
+
+		inside .gitignore:
+
+		add —> .env*
