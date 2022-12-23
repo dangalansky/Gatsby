@@ -201,7 +201,7 @@ Styled Components (Use)
 Images in Gatsby
 
 	1) install plugin: gatsby-plugin-image
-
+	
 	2) add strings to plugin array
 
 		`gatsby-plugin-image`,
